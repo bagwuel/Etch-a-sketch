@@ -106,11 +106,12 @@ function pixelMaker(column) {
 }
 
 controlChildren.forEach(controlChild => {
+    controlChild.className = 'control-div';
     controls.appendChild(controlChild);
 })
 
 controlDivs.forEach(div => {
-    div.className = 'çontrol_div';
+    div.className = 'control-div';
     div.style.display = 'flex';
     div.style.flexDirection = 'column';
     div.style.gap = '10px';

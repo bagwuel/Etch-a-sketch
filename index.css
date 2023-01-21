@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* border: 1px solid black; */
 }
 
 body {
@@ -83,4 +84,27 @@ button {
 
 #color {
     height: 13px;
+}
+
+
+@media screen and (max-width: 480px) {
+    .controls {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 10px;
+    }
+
+    button, .control-div {
+        border: 2px solid gold;
+        border-radius: 5px;
+        box-shadow: 2px 2px 2px 2px black;
+    }
+    button {
+        padding: 13px;
+    }
+    input {
+        display: block;
+        margin: 0 auto;
+    }
 }
