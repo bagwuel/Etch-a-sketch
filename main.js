@@ -1,6 +1,5 @@
-let matrix = 1
+let matrix = 50
 let column = matrix * matrix;
-let mouseIsDown = false;
 
 window.addEventListener('load', () => {
     pixelMaker(column)
@@ -88,7 +87,7 @@ pencilLabel.textContent = 'Pencil';
 eraserLabel.htmlFor = eraser.id;
 eraserLabel.textContent = 'Eraser';
 matrixSelectorLabel.htmlFor = matrixSelector.id;
-matrixSelectorLabel.textContent = 'Matrix';
+matrixSelectorLabel.textContent = 'Pencil Size';
 colorPickerLabel.htmlFor = colorPicker.id;
 colorPickerLabel.textContent = 'Color';
 
