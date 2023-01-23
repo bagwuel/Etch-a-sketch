@@ -161,7 +161,7 @@ reset.addEventListener('click', () => {
 
 function addevents(element) {
     function eventz(e) {
-       if (e.type === "mouseover" && mouseDown) {
+       if ((e.type === "mouseover" && mouseDown) || e.type === "touchstart") {
         const random = () => Math.floor(Math.random() * 256);
         if (pencilEraser()) {
             if (rainbow.checked) {
@@ -177,4 +177,5 @@ function addevents(element) {
        }
     }
     element.addEventListener('mouseover', eventz)
+    element.addEventListener('touchstart', eventz)
 }
