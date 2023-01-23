@@ -1,5 +1,9 @@
 let matrix = 50
 let column = matrix * matrix;
+let mouseDown = false
+document.body.onmousedown = () => (mouseDown = true)
+document.body.onmouseup = () => (mouseDown = false)
+
 
 window.addEventListener('load', () => {
     pixelMaker(column)
@@ -148,21 +152,6 @@ matrixSelector.addEventListener('change', (e) => {
     pixelMaker(column)
 })
 
-function addevents(element) {
-    element.addEventListener('mouseenter', (e) => {
-        const random = () => Math.floor(Math.random() * 256);
-        if (pencilEraser()) {
-            if (rainbow.checked) {
-                element.style.backgroundColor = `rgba(${random()}, ${random()}, ${random()})`;
-            }else {
-                element.style.backgroundColor = colorPicker.value;
-            }
-        }else {
-            element.style.backgroundColor = 'whitesmoke';
-        }
-    })
-}
-
 reset.addEventListener('click', () => {
     const pixels = document.querySelectorAll('.pixels')
     pixels.forEach(pixel => {
@@ -170,7 +159,22 @@ reset.addEventListener('click', () => {
     })
 })
 
-
-
-
-
+function addevents(element) {
+    function eventz(e) {
+       if (e.type === "mouseover" && mouseDown) {
+        const random = () => Math.floor(Math.random() * 256);
+        if (pencilEraser()) {
+            if (rainbow.checked) {
+                element.style.backgroundColor = `rgba(${random()}, ${random()}, ${random()})`;
+            }
+            if(!rainbow.checked) {
+                element.style.backgroundColor = colorPicker.value;
+            }
+        }
+        if(!pencilEraser()) {
+            element.style.backgroundColor = 'whitesmoke';
+        }
+       }
+    }
+    element.addEventListener('mouseover', eventz)
+}
